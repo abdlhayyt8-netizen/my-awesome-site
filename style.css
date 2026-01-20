@@ -49,43 +49,68 @@
     color: #088178;
 }
 
-/* قسم الـ Hero وصورتك الشخصية */
+/* --- Hero Section (الـ PC) --- */
 #hero {
-    /* استبدل me.png باسم صورتك بالضبط */
+    /* كنستعملو الصورة اللي عندك في السطر 55 */
     background-image: url("ana-123.jpeg"); 
     height: 90vh;
     width: 100%;
     background-size: cover;
-    background-position: top 25% right 0;
+    /* التموضع ديال الصورة باش تبان مزيان */
+    background-position: top 25% right 0; 
     padding: 0 80px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start; /* النص كيبدا من ليسر فالـ PC */
     justify-content: center;
 }
 
 #hero h4 {
     padding-bottom: 15px;
-    font-size: 24px;
-}
-
-#hero h2 {
-    font-size: 46px;
+    color: #222;
 }
 
 #hero h1 {
-    font-size: 54px;
-    color: #088178;
+    color: #088178; /* اللون الأخضر اللي فالتصويرة */
 }
 
 #hero button {
-    background-color: #088178;
-    color: white;
+    background-image: url("button.png"); /* إلا كانت عندك صورة البوطونة */
+    background-color: transparent;
+    color: #088178;
     border: 0;
-    padding: 14px 40px;
-    margin-top: 20px;
+    padding: 14px 80px 14px 65px;
+    background-repeat: no-repeat;
     cursor: pointer;
     font-weight: 700;
     font-size: 15px;
-    border-radius: 4px;
+}
+
+/* --- Responsive: التعديلات الخاصة بالتلفون --- */
+@media (max-width: 477px) {
+    #hero {
+        /* كنقصو الزحام من الجناب */
+        padding: 0 20px; 
+        /* كنبدلو التموضع باش وجهك يبان فالوسط فالتلفون */
+        background-position: top 30% right 30%; 
+        /* النص كيولي فالوسط بحال الصورة اللي صيفطتي */
+        align-items: center; 
+        text-align: center;
+    }
+
+    #hero h1 {
+        font-size: 38px; /* كنصغرو العنوان باش يقدو التلفون */
+    }
+
+    #hero h2 {
+        font-size: 32px;
+    }
+
+    #hero button {
+        /* بوطونة واضحة فالتلفون */
+        padding: 15px 40px;
+        background-color: #088178;
+        color: white;
+        border-radius: 4px;
+    }
 }
