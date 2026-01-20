@@ -50,7 +50,7 @@
 #hero {
     background-image: url("IMG_E1113.JPG"); /* يمكنك تغيير الصورة برابط صورتك */
     height: 90vh;
-    width: 100%;
+    width: 500%;
     background-size: 170%;
     background-position: top 25% right 0;
     padding: 0 80px;
