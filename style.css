@@ -1,5 +1,3 @@
-
-لقد أرسلت
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -9,7 +7,7 @@
     font-family: 'Spartan', sans-serif;
 }
 
-/* الترويسة (Navbar) */
+/* تنسيق اللوجو والقائمة العلويّة */
 #header {
     display: flex;
     align-items: center;
@@ -20,12 +18,17 @@
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 999;
+}
+
+.logo {
+    width: 120px; /* تصغير حجم اللوجو */
+    height: auto;
 }
 
 #navbar {
     display: flex;
     align-items: center;
-    justify-content: center;
     list-style: none;
 }
 
@@ -46,12 +49,13 @@
     color: #088178;
 }
 
-/* قسم الـ Hero */
+/* قسم الـ Hero وصورتك الشخصية */
 #hero {
-    background-image: url("IMG_E1113.JPG"); /* يمكنك تغيير الصورة برابط صورتك */
+    /* استبدل me.png باسم صورتك بالضبط */
+    background-image: url("ana-123.jpeg"); 
     height: 90vh;
-    width: 500%;
-    background-size: 100%;
+    width: 100%;
+    background-size: cover;
     background-position: top 25% right 0;
     padding: 0 80px;
     display: flex;
@@ -62,20 +66,26 @@
 
 #hero h4 {
     padding-bottom: 15px;
+    font-size: 24px;
+}
+
+#hero h2 {
+    font-size: 46px;
 }
 
 #hero h1 {
+    font-size: 54px;
     color: #088178;
 }
 
 #hero button {
-    background-image: url("https://i.postimg.cc/3w6mPy2z/button.png"); /* زر بتأثير مائي */
-    background-color: transparent;
-    color: #088178;
+    background-color: #088178;
+    color: white;
     border: 0;
-    padding: 14px 80px 14px 65px;
-    background-repeat: no-repeat;
+    padding: 14px 40px;
+    margin-top: 20px;
     cursor: pointer;
     font-weight: 700;
     font-size: 15px;
+    border-radius: 4px;
 }
