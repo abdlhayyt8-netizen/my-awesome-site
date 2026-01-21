@@ -1,3 +1,4 @@
+/* --- الإعدادات الأساسية --- */
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -7,33 +8,36 @@
     font-family: 'Spartan', sans-serif;
 }
 
-/* تنسيق اللوجو والقائمة العلويّة */
+/* --- Header & Navbar (PC) --- */
 #header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* كيدفع اللوغو لليسر والمينيو لليمن */
     padding: 20px 80px;
-    background: #E3E6F3;
+    background: #e3e6f3;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 999;
 }
 
-.logo {
-    width: 120px; /* تصغير حجم اللوجو */
+/* حل مشكلة اللوغو الكبير */
+#header .logo {
+    width: 120px; 
     height: auto;
 }
 
 #navbar {
     display: flex;
     align-items: center;
-    list-style: none;
+    justify-content: center;
 }
 
 #navbar li {
+    list-style: none;
     padding: 0 20px;
+    position: relative;
 }
 
 #navbar li a {
@@ -49,68 +53,410 @@
     color: #088178;
 }
 
-/* --- Hero Section (الـ PC) --- */
+/* الخط الصغير اللي كيبان تحت Home */
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#mobile {
+    display: none; /* مخبي فـ PC */
+}
+
+#close {
+    display: none; /* مخبي فـ PC */
+}
+
+/* --- Hero Section (PC) --- */
 #hero {
-    /* كنستعملو الصورة اللي عندك في السطر 55 */
-    background-image: url("ana-123.jpeg"); 
+    background-image: url("ana-123.jpeg"); /* تأكد من سمية الصورة */
     height: 90vh;
     width: 100%;
     background-size: cover;
-    /* التموضع ديال الصورة باش تبان مزيان */
     background-position: top 25% right 0; 
     padding: 0 80px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* النص كيبدا من ليسر فالـ PC */
+    align-items: flex-start;
     justify-content: center;
 }
 
 #hero h4 {
     padding-bottom: 15px;
-    color: #222;
 }
 
 #hero h1 {
-    color: #088178; /* اللون الأخضر اللي فالتصويرة */
+    color: #088178;
+    font-size: 46px;
 }
 
 #hero button {
-    background-image: url("button.png"); /* إلا كانت عندك صورة البوطونة */
-    background-color: transparent;
-    color: #088178;
+    background-color: #088178;
+    color: white;
     border: 0;
-    padding: 14px 80px 14px 65px;
-    background-repeat: no-repeat;
+    padding: 14px 40px;
     cursor: pointer;
     font-weight: 700;
-    font-size: 15px;
+    border-radius: 4px;
+    transition: 0.2s;
 }
 
-/* --- Responsive: التعديلات الخاصة بالتلفون --- */
-@media (max-width: 477px) {
+#hero button:hover {
+    background-color: #066b64;
+}
+
+/* --- Responsive (خاص بالتلفون) --- */
+@media (max-width: 799px) {
+    #header {
+        padding: 15px 30px;
+    }
+
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px; /* المينيو مخبي فـ الجنب */
+        height: 100vh;
+        width: 300px;
+        background-color: #e3e6f3;
+        box-shadow: 0 40px 60px rgba(0,0,0,0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    #navbar.active {
+        right: 0px; /* كيتفتح فاش كنكليكي على العلامة */
+    }
+
+    #navbar li {
+        margin-bottom: 25px;
+    }
+
+    #mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    #mobile i {
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+        cursor: pointer;
+    }
+
+    #close {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+    }
+
+    /* تعديل الـ Hero فالتلفون */
     #hero {
-        /* كنقصو الزحام من الجناب */
-        padding: 0 20px; 
-        /* كنبدلو التموضع باش وجهك يبان فالوسط فالتلفون */
-        background-position: top 30% right 30%; 
-        /* النص كيولي فالوسط بحال الصورة اللي صيفطتي */
-        align-items: center; 
+        height: 70vh;
+        padding: 0 20px;
+        background-position: top 30% right 30%;
+        align-items: center;
         text-align: center;
     }
 
     #hero h1 {
-        font-size: 38px; /* كنصغرو العنوان باش يقدو التلفون */
+        font-size: 35px;
     }
+}
+/* --- Shop Page Styles --- */
+#page-header {
+    background-image: url("banner.png"); /* دير صورة ديال بانر هنا */
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 14px;
+}
 
-    #hero h2 {
-        font-size: 32px;
-    }
+#page-header h2, #page-header p {
+    color: #fff;
+}
 
-    #hero button {
-        /* بوطونة واضحة فالتلفون */
-        padding: 15px 40px;
-        background-color: #088178;
-        color: white;
-        border-radius: 4px;
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.pro-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap; /* باش إلا تسالاو الـ 4 يهبطو لتحت */
+}
+
+.pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+.pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+.pro img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.pro .des {
+    text-align: start;
+    padding: 10px 0;
+}
+
+.pro .des span {
+    color: #606063;
+    font-size: 12px;
+}
+
+.pro .des h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+.pro .des i {
+    font-size: 12px;
+    color: rgb(243, 181, 25);
+}
+
+.pro .des h4 {
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #088178;
+}
+
+.pro .cart {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: #e8f6ea;
+    font-weight: 500;
+    color: #088178;
+    border: 1px solid #cce7d0;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
+
+/* التعديل للتلفون */
+@media (max-width: 477px) {
+    .section-p1 {
+        padding: 20px;
     }
+    .pro {
+        width: 100%; /* فالتلفون المنتج كياخد العرض كامل */
+    }
+}
+
+/* --- About Page --- */
+#about-head {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+#about-head img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#about-head div {
+    width: 50%;
+}
+
+#about-head h2 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+#about-head p {
+    color: #465b52;
+    padding: 20px 0;
+}
+
+/* Features Section */
+#feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#feature .fe-box {
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+    border: 1px solid #cce7d0;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+
+#feature .fe-box img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#feature .fe-box h6 {
+    display: inline-block;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: #088178;
+    background-color: #fddde4;
+}
+
+/* التعديل للتلفون */
+@media (max-width: 477px) {
+    #about-head {
+        flex-direction: column;
+    }
+    #about-head img, #about-head div {
+        width: 100%;
+    }
+    #feature {
+        justify-content: center;
+    }
+    #feature .fe-box {
+        width: 150px;
+        margin: 10px;
+    }
+}
+Css
+
+/* --- Contact Page --- */
+#contact-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#contact-details .details {
+    width: 40%;
+}
+
+#contact-details .details span,
+#form-details form span {
+    font-size: 12px;
+}
+
+#contact-details .details h2,
+#form-details form h2 {
+    font-size: 26px;
+    line-height: 35px;
+    padding: 20px 0;
+}
+
+#contact-details .details h3 {
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+#contact-details .details li {
+    list-style: none;
+    display: flex;
+    padding: 10px 0;
+}
+
+#contact-details .details li i {
+    font-size: 14px;
+    padding-right: 22px;
+}
+
+#contact-details .details li p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#contact-details .map {
+    width: 55%;
+    height: 400px;
+}
+
+#contact-details .map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#form-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 80px;
+    border: 1px solid #e1e1e1;
+}
+
+#form-details form {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form-details form input,
+#form-details form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+}
+
+#form-details form button {
+    background-color: #088178;
+    color: #fff;
+    padding: 14px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* التعديل للتلفون */
+@media (max-width: 477px) {
+    #contact-details {
+        flex-direction: column;
+    }
+    #contact-details .details,
+    #contact-details .map,
+    #form-details,
+    #form-details form {
+        width: 100%;
+    }
+    #form-details {
+        padding: 40px 20px;
+    }
+}
+#header .logo{
+    width: 100px;
+    height: auto;
 }
