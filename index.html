@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cara - Ecommerce</title>
+    <title>official website of Abdelhay</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 </head>
@@ -16,8 +16,7 @@
         <div>
             <ul id="navbar">
                 <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="Shop.html">Shop</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
@@ -29,8 +28,24 @@
         <h4>Hello I'm Abdelhay</h4>
         <h2>web programmer and developer</h2>
         <p>welcome</p>
-        <button>Shop Now</button>
+        
     </section>
+<script>
+        const bar = document.getElementById('bar');
+        const close = document.getElementById('close');
+        const nav = document.getElementById('navbar');
 
+        if (bar) {
+            bar.addEventListener('click', () => {
+                nav.classList.add('active');
+            })
+        }
+
+        if (close) {
+            close.addEventListener('click', () => {
+                nav.classList.remove('active');
+            })
+        }
+    </script>
 </body>
 </html>
