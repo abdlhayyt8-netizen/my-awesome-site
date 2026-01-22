@@ -1,3 +1,8 @@
+html, body {
+    overflow-x: hidden !important; /* كيمنع التحرك لليمين واليسار */
+    width: 100% !important;
+    position: relative !important;
+}
 /* --- الإعدادات الأساسية --- */
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -12,19 +17,34 @@
 #header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* كيدفع اللوغو لليسر والمينيو لليمن */
-    padding: 20px 80px;
+    justify-content: space-between; /* باش يفرق اللوغو على المينيو */
+    padding: 15px 5%; /* مسافة أمان ف الجناب */
     background: #e3e6f3;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-    z-index: 999;
-    position: sticky;
-    top: 0;
-    left: 0;
+    width: 100%;
+    box-sizing: border-box; /* باش العرض ما يخرجش على 100% */
+}
+
+#header .logo {
+    width: 80px; /* تصغير اللوغو باش يخلي اتساع */
+    height: auto;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px; /* مسافة بين الروابط */
+}
+
+#navbar li {
+    list-style: none;
+}
 }
 
 /* حل مشكلة اللوغو الكبير */
 #header .logo {
-    width: 120px; 
+    width: 80px; 
     height: auto;
 }
 
@@ -42,8 +62,8 @@
 
 #navbar li a {
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 800;
     color: #1a1a1a;
     transition: 0.3s ease;
 }
@@ -80,11 +100,13 @@
     width: 100%;
     background-size: cover;
     background-position: top 25% right 0; 
-    padding: 0 80px;
+    padding: 0 90px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin-top: 70px;
+
 }
 
 #hero h4 {
@@ -117,22 +139,7 @@
         padding: 15px 30px;
     }
 
-    #navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: fixed;
-        top: 0;
-        right: -300px; /* المينيو مخبي فـ الجنب */
-        height: 100vh;
-        width: 300px;
-        background-color: #e3e6f3;
-        box-shadow: 0 40px 60px rgba(0,0,0,0.1);
-        padding: 80px 0 0 10px;
-        transition: 0.3s;
-    }
-
+  
     #navbar.active {
         right: 0px; /* كيتفتح فاش كنكليكي على العلامة */
     }
@@ -267,15 +274,6 @@
     right: 10px;
 }
 
-/* التعديل للتلفون */
-@media (max-width: 477px) {
-    .section-p1 {
-        padding: 20px;
-    }
-    .pro {
-        width: 100%; /* فالتلفون المنتج كياخد العرض كامل */
-    }
-}
 
 /* --- About Page --- */
 #about-head {
@@ -303,6 +301,7 @@
     color: #465b52;
     padding: 20px 0;
 }
+
 
 /* Features Section */
 #feature {
@@ -336,22 +335,7 @@
     background-color: #fddde4;
 }
 
-/* التعديل للتلفون */
-@media (max-width: 477px) {
-    #about-head {
-        flex-direction: column;
-    }
-    #about-head img, #about-head div {
-        width: 100%;
-    }
-    #feature {
-        justify-content: center;
-    }
-    #feature .fe-box {
-        width: 150px;
-        margin: 10px;
-    }
-}
+
 Css
 
 /* --- Contact Page --- */
@@ -441,22 +425,57 @@ Css
     border-radius: 4px;
 }
 
-/* التعديل للتلفون */
-@media (max-width: 477px) {
-    #contact-details {
-        flex-direction: column;
-    }
-    #contact-details .details,
-    #contact-details .map,
-    #form-details,
-    #form-details form {
-        width: 100%;
-    }
-    #form-details {
-        padding: 40px 20px;
-    }
+
 }
 #header .logo{
     width: 100px;
     height: auto;
+}
+@media (max-with:499px){
+#
+}
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 4%; /* مسافة أمان باش ما يغبروش ف الجناب */
+    background-color: #e3e6f3;
+    width: 100%;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+#header .logo {
+    width: 80px; /* قياس مناسب باش ما يجيش كبير بزاف */
+    height: auto;
+}
+
+#navbar {
+    display: flex;
+    list-style: none;
+    gap: 15px; /* مسافة بين الروابط */
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    white-space: nowrap; /* كيمنع الكلمات يتقسموا على جوج */
+}
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+    background-color: #e3e6f3;
+    width: 100%;
+    position: fixed; /* كايخليه لاصق الفوق */
+    top: 0;
+    left: 0;
+    z-index: 999; /* باش يبقى فوق كاع العناصر الأخرى */
+    box-sizing: border-box;
 }
