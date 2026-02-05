@@ -1,10 +1,5 @@
-html, body {
-    overflow-x: hidden !important; /* كيمنع التحرك لليمين واليسار */
-    width: 100% !important;
-    position: relative !important;
-}
-/* --- الإعدادات الأساسية --- */
-@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* --- Global Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;400;700;900&display=swap');
 
 * {
     margin: 0;
@@ -13,270 +8,181 @@ html, body {
     font-family: 'Spartan', sans-serif;
 }
 
-/* --- Header & Navbar (PC) --- */
+body {
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* --- Header & Navbar --- */
 #header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* باش يفرق اللوغو على المينيو */
-    padding: 15px 5%; /* مسافة أمان ف الجناب */
-    background: #e3e6f3;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    justify-content: space-between;
+    padding: 20px 8%;
+    background: rgba(15, 15, 15, 0.95);
+    position: fixed;
+    top: 0;
     width: 100%;
-    box-sizing: border-box; /* باش العرض ما يخرجش على 100% */
+    z-index: 1000;
 }
 
-#header .logo {
-    width: 80px; /* تصغير اللوغو باش يخلي اتساع */
-    height: auto;
-}
+#header .logo { width: 50px; border-radius: 50%; }
 
-#navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 100px; /* مسافة بين الروابط */
-}
-
-#navbar li {
-    list-style: none;
-}
-}
-
-/* حل مشكلة اللوغو الكبير */
-#header .logo {
-    width: 80px; 
-    height: auto;
-}
-
-#navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#navbar li {
-    list-style: none;
-    padding: 0 20px;
-    position: relative;
-}
+#navbar { display: flex; list-style: none; gap: 30px; }
 
 #navbar li a {
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 800;
-    color: #1a1a1a;
-    transition: 0.3s ease;
-}
-
-#navbar li a:hover,
-#navbar li a.active {
-    color: #088178;
-}
-
-/* الخط الصغير اللي كيبان تحت Home */
-#navbar li a.active::after,
-#navbar li a:hover::after {
-    content: "";
-    width: 30%;
-    height: 2px;
-    background: #088178;
-    position: absolute;
-    bottom: -4px;
-    left: 20px;
-}
-
-#mobile {
-    display: none; /* مخبي فـ PC */
-}
-
-#close {
-    display: none; /* مخبي فـ PC */
-}
-
-/* --- Hero Section (PC) --- */
-#hero {
-    background-image: url("ana-123.jpeg"); /* تأكد من سمية الصورة */
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 25% right 0; 
-    padding: 0 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin-top: 70px;
-
-}
-
-#hero h4 {
-    padding-bottom: 15px;
-}
-
-#hero h1 {
-    color: #088178;
-    font-size: 46px;
-}
-
-#hero button {
-    background-color: #088178;
-    color: white;
-    border: 0;
-    padding: 14px 40px;
-    cursor: pointer;
-    font-weight: 700;
-    border-radius: 4px;
-    transition: 0.2s;
-}
-
-#hero button:hover {
-    background-color: #066b64;
-}
-
-/* --- Responsive (خاص بالتلفون) --- */
-@media (max-width: 799px) {
-    #header {
-        padding: 15px 30px;
-    }
-
-  
-    #navbar.active {
-        right: 0px; /* كيتفتح فاش كنكليكي على العلامة */
-    }
-
-    #navbar li {
-        margin-bottom: 25px;
-    }
-
-    #mobile {
-        display: flex;
-        align-items: center;
-    }
-
-    #mobile i {
-        color: #1a1a1a;
-        font-size: 24px;
-        padding-left: 20px;
-        cursor: pointer;
-    }
-
-    #close {
-        display: initial;
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        color: #222;
-        font-size: 24px;
-    }
-
-    /* تعديل الـ Hero فالتلفون */
-    #hero {
-        height: 70vh;
-        padding: 0 20px;
-        background-position: top 30% right 30%;
-        align-items: center;
-        text-align: center;
-    }
-
-    #hero h1 {
-        font-size: 35px;
-    }
-}
-/* --- Shop Page Styles --- */
-#page-header {
-    background-image: url("banner.png"); /* دير صورة ديال بانر هنا */
-    width: 100%;
-    height: 40vh;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    padding: 14px;
-}
-
-#page-header h2, #page-header p {
     color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-.section-p1 {
-    padding: 40px 80px;
-}
+#navbar li a:hover, #navbar li a.active { color: #ff3c5f; }
 
-.pro-container {
+/* --- Hero Section (Home) --- */
+#hero {
+    height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding-top: 20px;
-    flex-wrap: wrap; /* باش إلا تسالاو الـ 4 يهبطو لتحت */
-}
-
-.pro {
-    width: 23%;
-    min-width: 250px;
-    padding: 10px 12px;
-    border: 1px solid #cce7d0;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
-    margin: 15px 0;
-    transition: 0.2s ease;
+    padding: 0 8%;
     position: relative;
 }
 
-.pro:hover {
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+.hero-text { z-index: 10; }
+
+.hero-text h1 { font-size: 4.5rem; line-height: 1.1; font-weight: 900; }
+
+.hero-text span { color: #ff3c5f; }
+
+.hero-image {
+    position: relative;
+    height: 90%;
+    display: flex;
+    align-items: flex-end;
 }
 
-.pro img {
-    width: 100%;
-    border-radius: 20px;
-}
-
-.pro .des {
-    text-align: start;
-    padding: 10px 0;
-}
-
-.pro .des span {
-    color: #606063;
-    font-size: 12px;
-}
-
-.pro .des h5 {
-    padding-top: 7px;
-    color: #1a1a1a;
-    font-size: 14px;
-}
-
-.pro .des i {
-    font-size: 12px;
-    color: rgb(243, 181, 25);
-}
-
-.pro .des h4 {
-    padding-top: 7px;
-    font-size: 15px;
-    font-weight: 700;
-    color: #088178;
-}
-
-.pro .cart {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 50px;
-    background-color: #e8f6ea;
-    font-weight: 500;
-    color: #088178;
-    border: 1px solid #cce7d0;
+/* اللعيبة التفاعلية ورا صورتك */
+.hero-image::before {
+    content: "";
     position: absolute;
-    bottom: 20px;
-    right: 10px;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, #ff3c5f, transparent);
+    filter: blur(60px);
+    border-radius: 50%;
+    z-index: -1;
+    bottom: 10%;
+    right: 5%;
+    opacity: 0.5;
+    transition: 0.8s ease;
 }
+
+.hero-image:hover::before {
+    background: radial-gradient(circle, #00f2ff, transparent); /* اللون كيتبدل للأزرق */
+    transform: scale(1.2);
+}
+
+.hero-image img {
+    height: 100%;
+    filter: drop-shadow(0 0 20px rgba(255, 60, 95, 0.2));
+    transition: 0.5s;
+}
+
+.hero-image:hover img { transform: scale(1.02); }
+
+/* --- Shop & Page Headers --- */
+#page-header {
+    height: 40vh;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('an-123.jpeg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+#page-header h2 { font-size: 3rem; color: #ff3c5f; }
+
+/* --- Product Cards --- */
+.pro-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 80px 8%;
+}
+
+.pro {
+    width: 300px;
+    background: #111;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #222;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.pro:hover {
+    border-color: #ff3c5f;
+    transform: translateY(-10px);
+}
+
+.pro img { width: 100%; border-radius: 15px; margin-bottom: 15px; }
+
+.wa-btn {
+    display: block;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* --- About & Contact --- */
+#about-head, #contact-details {
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+#about-head img { width: 40%; border-radius: 20px; border: 2px solid #ff3c5f; }
+
+.social-links { display: flex; gap: 20px; margin-top: 20px; }
+.social-links a { color: #fff; font-size: 24px; transition: 0.3s; }
+.social-links a:hover { color: #ff3c5f; }
+
+.btn-download {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #ff3c5f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 799px) {
+    #hero { flex-direction: column; text-align: center; height: auto; padding-top: 150px; }
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-image { height: 50vh; margin-top: 40px; }
+    #about-head { flex-direction: column; }
+    #about-head img { width: 100%; }
+    .pro { width: 100%; }
+}
+
 
 
 /* --- About Page --- */
-#about-head {
+#About-head {
     display: flex;
     align-items: center;
     gap: 40px;
@@ -333,149 +239,50 @@ html, body {
     border-radius: 4px;
     color: #088178;
     background-color: #fddde4;
+
 }
+    
 
 
-Css
-
-/* --- Contact Page --- */
-#contact-details {
+    /* تنسيق حاوية الأيقونات */
+.my-social-icons {
+    margin-top: 25px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-#contact-details .details {
-    width: 40%;
+/* تنسيق القائمة */
+.social-counter-widget {
+    display: flex;          /* باش يرجعوا في سطر واحد */
+    gap: 20px;             /* المسافة بيناتهم */
+    list-style: none;       /* حيد النقط البيضاء */
+    padding: 0;
 }
 
-#contact-details .details span,
-#form-details form span {
-    font-size: 12px;
+/* تنسيق شكل الأيقونة */
+.social-counter-widget li a i {
+    color: white !important; /* فرض اللون الأبيض */
+    font-size: 26px;         /* كبر الحجم من هنا */
+    transition: 0.3s ease;
 }
 
-#contact-details .details h2,
-#form-details form h2 {
-    font-size: 26px;
-    line-height: 35px;
-    padding: 20px 0;
+/* تأثير عند تمرير الفارة */
+.social-counter-widget li a:hover i {
+    color: #ff4d4d !important; /* اللون اللي كيولي ملي تدوز الفارة */
+    transform: translateY(-5px); /* كتطلع شوية للفوق */
 }
-
-#contact-details .details h3 {
-    font-size: 16px;
-    padding-bottom: 15px;
-}
-
-#contact-details .details li {
+.social-counter-widget {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     list-style: none;
-    display: flex;
-    padding: 10px 0;
+    padding: 0;
+    margin-top: 20px;
 }
 
-#contact-details .details li i {
-    font-size: 14px;
-    padding-right: 22px;
+.social-counter-widget li a i {
+    color: white !important; /* لون أبيض فاقع */
+    font-size: 30px;         /* كبرناهم شوية باش يبانو */
+    display: block;
 }
-
-#contact-details .details li p {
-    margin: 0;
-    font-size: 14px;
-}
-
-#contact-details .map {
-    width: 55%;
-    height: 400px;
-}
-
-#contact-details .map iframe {
-    width: 100%;
-    height: 100%;
-}
-
-#form-details {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px;
-    padding: 80px;
-    border: 1px solid #e1e1e1;
-}
-
-#form-details form {
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-#form-details form input,
-#form-details form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    outline: none;
-    margin-bottom: 20px;
-    border: 1px solid #e1e1e1;
-}
-
-#form-details form button {
-    background-color: #088178;
-    color: #fff;
-    padding: 14px 30px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-
-}
-#header .logo{
-    width: 100px;
-    height: auto;
-}
-@media (max-with:499px){
-#
-}
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 4%; /* مسافة أمان باش ما يغبروش ف الجناب */
-    background-color: #e3e6f3;
-    width: 100%;
-    box-sizing: border-box;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 999;
-}
-
-#header .logo {
-    width: 80px; /* قياس مناسب باش ما يجيش كبير بزاف */
-    height: auto;
-}
-
-#navbar {
-    display: flex;
-    list-style: none;
-    gap: 15px; /* مسافة بين الروابط */
-}
-
-#navbar li a {
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    color: #1a1a1a;
-    white-space: nowrap; /* كيمنع الكلمات يتقسموا على جوج */
-}
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 5%;
-    background-color: #e3e6f3;
-    width: 100%;
-    position: fixed; /* كايخليه لاصق الفوق */
-    top: 0;
-    left: 0;
-    z-index: 999; /* باش يبقى فوق كاع العناصر الأخرى */
-    box-sizing: border-box;
-}
+ 
