@@ -1,51 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>official website of Abdelhay</title>
+    <title>Abdelhay Stiafa - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <section id="header">
-        <a href="#"><img src="ana-123.jpeg" class="logo" alt="my logo"></a>
 
-        <div>
-            <ul id="navbar">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="Shop.html">Shop</a></li>
-                <li><a href="About.html">About</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-                <li><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
-            </ul>
-        </div>
-    </section>
 
-    <section id="hero">
-        <h4>Hello I'm Abdelhay</h4>
-        <h2>web programmer and developer</h2>
-        <p>welcome</p>
-        
-    </section>
-<script>
-        const bar = document.getElementById('bar');
-        const close = document.getElementById('close');
-        const nav = document.getElementById('navbar');
+    <header id="header">
+        <a href="index.html"><img src="ana-123.jpeg" class="logo" alt="Logo"></a>
+        <ul id="navbar">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
 
-        if (bar) {
-            bar.addEventListener('click', () => {
-                nav.classList.add('active');
-            })
-        }
+<section id="hero">
 
-        if (close) {
-            close.addEventListener('click', () => {
-                nav.classList.remove('active');
-            })
-        }
-    </script>
+    <div class="hero-text">
+        <p class="intro">Hello, my name is</p>
+        <h1>Abdelhay <span>Stiafa</span></h1>
+        <p class="tagline">I'm a <span>Full-Stack</span> Developer.</p>
+        <a href="About.html" class="btn-download">Download CV</a>
+    </div>
+<div class="social-links-container">
+    <a href="https://facebook.com/..." target="_blank" class="s-icon"><i class="fa-brands fa-facebook"></i></a>
+    <a href="https://instagram.com/..." target="_blank" class="s-icon"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://youtube.com/..." target="_blank" class="s-icon"><i class="fa-brands fa-youtube"></i></a>
+</div>
+    <div class="hero-image">
+        <img src="STAIFA.png.png" alt="Abdelhay Stiafa">
+    </div>
+</section>
 </body>
 </html>
