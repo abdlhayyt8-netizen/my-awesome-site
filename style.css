@@ -307,3 +307,40 @@ body {
         transform: translateY(0);
     }
 }
+/* الحاوية الكبيرة */
+.transition-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex; /* باش نقسموهم جنبا إلى جنب */
+    z-index: 9999;
+    pointer-events: none; /* باش ميبلوكيش الضغط على الأزرار مورا ما يسالي */
+}
+
+/* الأشرطة (المشاريط) */
+.shred {
+    flex: 1; /* كل واحد ياخد ربع المساحة */
+    height: 100%;
+    background-color: #ffcc00; /* اللون الأصفر */
+    transform: translateY(0);
+    animation: slideUpShred 1s ease-in-out forwards;
+}
+
+/* تأخير كل شريط باش تجي الحركة "مشرطة" */
+.shred:nth-child(1) { animation-delay: 0.1s; }
+.shred:nth-child(2) { animation-delay: 0.2s; }
+.shred:nth-child(3) { animation-delay: 0.3s; }
+.shred:nth-child(4) { animation-delay: 0.4s; }
+
+/* تعريف الحركة */
+@keyframes slideUpShred {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+        visibility: hidden;
+    }
+}
